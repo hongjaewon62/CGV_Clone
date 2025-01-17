@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import styled from "styled-components";
 import NavBarButton from "../Ui/NavBarButton";
+import DropDownMenu from './DropDownMenu';
 
 const Wrapper = styled.div`
     display: flex;
@@ -41,6 +42,13 @@ const SearchIcon = styled.img`
     align-items: center;
     margin: 2px;
 `;
+
+const NavOverMenu = styled.div`
+    display: block;
+    overflow: hidden;
+    margin-top: 0px;
+    padding-bottom: 0px;
+`
 
 // const DropdownMenu = styled.div`
 //     display: ${(props) => (props.isVisible ? "flex" : "none")};
@@ -102,6 +110,9 @@ function NavBar() {
                 <SerachInput type="text" />
                 <SearchIcon src="img/search.png" />
             </Search>
+            {/* <NavOverMenu>
+                
+            </NavOverMenu> */}
             {/* <DropdownMenu isVisible={isDropdownVisible}>
                 <DropdownSection>
                     <SectionTitle>영화</SectionTitle>

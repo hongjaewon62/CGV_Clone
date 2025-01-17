@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import HeaderButton from "../Ui/HeaderButton";
 import NavBar from "./NavBar";
+import Movie from "./Movie";
+import DropDownMenu from "./DropDownMenu";
 
 const HeaderContentStyled = styled.div`
     background: white;
@@ -67,6 +69,8 @@ function HeaderContent() {
             <NavBarStyled>
                 <NavBar />
             </NavBarStyled>
+            <Movie />
+            <DropDownMenu />
         </>
     );
 }

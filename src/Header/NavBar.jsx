@@ -9,6 +9,19 @@ const Wrapper = styled.div`
     position: relative;
 `;
 
+// const NavBarContainer = styled.div`
+//     position: relative;
+//     width: 100%;
+// `;
+
+// const DropDownContainer = styled.div`
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     top: 100%;
+//     z-index: 100;
+// `;
+
 const NavMenu = styled.div`
     display: flex;
     align-items: start;
@@ -86,82 +99,39 @@ const NavOverMenu = styled.div`
 // `;
 
 function NavBar() {
-    // const [isDropdownVisible, setDropdownVisible] = useState(false);
+    const [dropdownVisible, setDropdownVisible] = useState(false);
 
-    // const handleMouseEnter = () => {
-    //     setDropdownVisible(true);
-    // };
+    const handleMouseEnter = () => {
+        setDropdownVisible(true);
+    };
 
-    // const handleMouseLeave = () => {
-    //     setDropdownVisible(false);
-    // };
+    const handleMouseLeave = () => {
+        setDropdownVisible(false);
+    };
     return(
-        // <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <Wrapper>
-            <NavMenu>
-                <NavBarButton title="영화" />
-                <NavBarButton title="극장" />
-                <NavBarButton title="예메" color="#FB4357" />
-                <NavBarButton title="스토어" />
-                <NavBarButton title="이벤트" />
-                <NavBarButton title="헤택" />
-            </NavMenu>
-            <Search>
-                <SerachInput type="text" />
-                <SearchIcon src="img/search.png" />
-            </Search>
-            {/* <NavOverMenu>
-                
-            </NavOverMenu> */}
-            {/* <DropdownMenu isVisible={isDropdownVisible}>
-                <DropdownSection>
-                    <SectionTitle>영화</SectionTitle>
-                    <SectionItem>무비차트</SectionItem>
-                    <SectionItem>아트하우스</SectionItem>
-                    <SectionItem>ICECON</SectionItem>
-                </DropdownSection>
-                <DropdownSection>
-                    <SectionTitle>극장</SectionTitle>
-                    <SectionItem>CGV 극장</SectionItem>
-                    <SectionItem>특별관</SectionItem>
-                </DropdownSection>
-                <DropdownSection>
-                    <SectionTitle>예매</SectionTitle>
-                    <SectionItem>빠른예매</SectionItem>
-                    <SectionItem>상영스케줄</SectionItem>
-                    <SectionItem>English Ticketing</SectionItem>
-                    <SectionItem>English Schedule</SectionItem>
-                </DropdownSection>
-                <DropdownSection>
-                    <SectionTitle>스토어</SectionTitle>
-                    <SectionItem>패키지</SectionItem>
-                    <SectionItem>영화관람권</SectionItem>
-                    <SectionItem>기프트카드</SectionItem>
-                    <SectionItem>콤보</SectionItem>
-                    <SectionItem>팝콘</SectionItem>
-                    <SectionItem>음료</SectionItem>
-                    <SectionItem>스낵</SectionItem>
-                    <SectionItem>플레이존</SectionItem>
-                    <SectionItem>씨네샵</SectionItem>
-                </DropdownSection>
-                <DropdownSection>
-                    <SectionTitle>이벤트</SectionTitle>
-                    <SectionItem>SPECIAL</SectionItem>
-                    <SectionItem>영화/예매</SectionItem>
-                    <SectionItem>멤버십/CLUB</SectionItem>
-                    <SectionItem>CGV 극장별</SectionItem>
-                    <SectionItem>제휴할인</SectionItem>
-                    <SectionItem>당첨자 발표</SectionItem>
-                    <SectionItem>종료된 이벤트</SectionItem>
-                </DropdownSection>
-                <DropdownSection>
-                    <SectionTitle>혜택</SectionTitle>
-                    <SectionItem>CGV 할인정보</SectionItem>
-                    <SectionItem>CLUB 서비스</SectionItem>
-                    <SectionItem>VIP 라운지</SectionItem>
-                </DropdownSection>
-            </DropdownMenu> */}
-        </Wrapper>
+        <>
+            <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            {/* <Wrapper> */}
+                <NavMenu>
+                    <NavBarButton title="영화" />
+                    <NavBarButton title="극장" />
+                    <NavBarButton title="예메" color="#FB4357" />
+                    <NavBarButton title="스토어" />
+                    <NavBarButton title="이벤트" />
+                    <NavBarButton title="헤택" />
+                </NavMenu>
+                <Search>
+                    <SerachInput type="text" />
+                    <SearchIcon src="img/search.png" />
+                </Search>
+
+            </Wrapper>
+            {/* <DropDownMenu isVisible={dropdownVisible} ></DropDownMenu> */}
+            {/* <NavBarContainer>
+            <DropDownContainer>
+            </DropDownContainer>
+            </NavBarContainer> */}
+        </>
     );
 }
 

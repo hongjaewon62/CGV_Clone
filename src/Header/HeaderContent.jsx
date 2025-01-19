@@ -70,7 +70,7 @@ function HeaderContent() {
                 <NavBar />
             </NavBarStyled>
             <Movie />
-            <DropDownMenu />
+            {/* <DropDownMenu /> */}
         </>
     );
 }

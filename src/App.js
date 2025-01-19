@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HeaderContent from './Header/HeaderContent';
 import NavBar from "./Header/NavBar";
+import FooterContent from './Footer/FooterContent';
 
 function App() {
   return(
@@ -10,6 +11,7 @@ function App() {
         <Route index element={<HeaderContent />} />
         {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
+      <FooterContent />
     </BrowserRouter>
   );
 }

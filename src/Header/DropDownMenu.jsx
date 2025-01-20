@@ -1,15 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 
+const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
 const DropDownWrapper = styled.div`
     background: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    //display: ${(props) => (props.isVisible ? "flex" : "none")};
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    /* opacity: ${(props) => (props.isVisible ? 1 : 0)};
-    transform: ${(props) => (props.isVisible ? "translateY(0)" : "translateY(-10px)")}; */
+    position: absolute;
+    top: 185px;
+    width: 100%;
+    z-index: 4;
+    max-height: ${(props) => (props.isVisible ? "320px" : "0")};
+    overflow: hidden;
+    transition: ${(props) => 
+        props.isVisible 
+            ? "max-height 0.4s ease-in" 
+            : "max-height 0.3s ease-out, opacity 0.3s ease-out"
+    };
+    opacity: ${(props) => (props.isVisible ? 1 : 0)};
 `;
 
 const DropDownMenuContent = styled.div`
@@ -22,6 +35,7 @@ const DropDownMenuContent = styled.div`
     border-left: 0.5px solid #EEEEEE;
     border-right: 0.5px solid #EEEEEE;
     flex-direction: column;
+    z-index: 3;
 `;
 
 const DropDownTitle = styled.div`
@@ -29,6 +43,10 @@ const DropDownTitle = styled.div`
     font-size: 14px;
     font-weight: 700;
     margin: 20px 5px 5px 25px;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
 `;
 
 const DropDownContent = styled.div`
@@ -36,6 +54,10 @@ const DropDownContent = styled.div`
     font-size: 14px;
     font-weight: 400;
     margin: 5px 5px 5px 25px;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
 `
 const menuData = [
     {
@@ -64,18 +86,20 @@ const menuData = [
     },
 ];
 
-function DropDownMenu({isVisible}) {
+function DropDownMenu({isVisible, onMouseLeave}) {
     return (
-        <DropDownWrapper isVisible={isVisible}>
-            {menuData.map((menu, index) => (
-                <DropDownMenuContent key={index}>
-                    <DropDownTitle>{menu.title}</DropDownTitle>
-                    {menu.items.map((item, subIndex) => (
-                        <DropDownContent key={subIndex}>{item}</DropDownContent>
-                    ))}
-                </DropDownMenuContent>
-            ))}
-        </DropDownWrapper>
+        <Wrapper onMouseLeave={onMouseLeave}>
+            <DropDownWrapper isVisible={isVisible}>
+                {menuData.map((menu, index) => (
+                    <DropDownMenuContent key={index}>
+                        <DropDownTitle>{menu.title}</DropDownTitle>
+                        {menu.items.map((item, subIndex) => (
+                            <DropDownContent key={subIndex}>{item}</DropDownContent>
+                        ))}
+                    </DropDownMenuContent>
+                ))}
+            </DropDownWrapper>
+        </Wrapper>
     );
 }
 

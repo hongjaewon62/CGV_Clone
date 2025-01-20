@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import styled from "styled-components";
 import VideoData from "../data/VideoData";
+import DetailButton from "../Ui/DetailButton";
 
 const VideoPlaceHolderWrapper = styled.div`
     display: flex;
@@ -75,20 +76,6 @@ const VideoStyled = styled.video`
     z-index: 1;
 `;
 
-const VideoDetailView = styled.a`
-    display: block;
-    padding: 5px 30px 5px 18px;
-    font-size: 14px;
-    color: #343434;
-    background: rgba(255, 255, 255, 0.8) url(img/arrowR_8x13.png) calc(100% - 11px) center / 8px 13px scroll no-repeat;
-    border-radius: 15px;
-    position: absolute;
-    z-index: 2;
-    cursor: pointer;
-    top: 310px;
-    z-index: 2;
-`;
-
 const VideoButton = styled.a`
     display: block;
     position: absolute;
@@ -147,7 +134,8 @@ function Movie() {
                     </VideoStyled>
                     <VideoTitle>{randomVideo.title}</VideoTitle>
                     <VideoDesc>{randomVideo.description}</VideoDesc>
-                    <VideoDetailView>상세보기</VideoDetailView>
+                    {/* <VideoDetailView>상세보기</VideoDetailView> */}
+                    <DetailButton title="상세보기" top="310px" />
                     <VideoButton 
                         isActive={playVideo}
                         activeUrl="img/play.png"

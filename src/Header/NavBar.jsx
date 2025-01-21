@@ -48,13 +48,6 @@ const SearchIcon = styled.img`
     margin: 2px;
 `;
 
-const NavOverMenu = styled.div`
-    display: block;
-    overflow: hidden;
-    margin-top: 0px;
-    padding-bottom: 0px;
-`
-
 function NavBar() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
 
@@ -69,8 +62,8 @@ function NavBar() {
     return(
         <> 
             <NavWrapper>
-                <Wrapper onMouseEnter={handleMouseEnter}>
-                    <NavMenu>
+                <Wrapper>
+                    <NavMenu onMouseEnter={handleMouseEnter}>
                         <NavBarButton title="영화" />
                         <NavBarButton title="극장" />
                         <NavBarButton title="예메" color="#FB4357" />

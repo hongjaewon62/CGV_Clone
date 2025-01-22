@@ -134,7 +134,7 @@ function Movie() {
                     </VideoStyled>
                     <VideoTitle>{randomVideo.title}</VideoTitle>
                     <VideoDesc>{randomVideo.description}</VideoDesc>
-                    <DetailButton title="상세보기" top="310px" />
+                    <DetailButton title="상세보기" top="310px" position="absolute" />
                     <VideoButton 
                         isActive={playVideo}
                         activeUrl="img/play.png"

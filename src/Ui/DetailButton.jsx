@@ -7,17 +7,18 @@ const VideoDetailView = styled.div`
     font-size: 14px;
     color: #343434;
     background: rgba(255, 255, 255, 0.8) url(img/arrowR_8x13.png) calc(100% - 11px) center / 8px 13px scroll no-repeat;
+    border: 1px solid #e2e2e2;
     border-radius: 15px;
-    position: absolute;
+    position: ${(props) => props.position || ""};
     z-index: 2;
     cursor: pointer;
-    top: ${(props) => props.top || "0px"};
+    top: ${(props) => props.top || "auto"};
 `;
 
 function DetailButton(props) {
-    const {title, onClick, top} = props
+    const {title, onClick, top, position} = props
     return (
-        <VideoDetailView onClick={onClick} top={top}>
+        <VideoDetailView onClick={onClick} top={top} position={position}>
             {title || "button"}
         </VideoDetailView>
     );

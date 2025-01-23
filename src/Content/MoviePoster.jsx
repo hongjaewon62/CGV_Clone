@@ -15,7 +15,7 @@ function MoviePoster(props) {
     const {url} = props;
     return (
         <Wrapper>
-            <Poster url={url}/>
+            <Poster src={url} alt="Movie Poster"/>
         </Wrapper>
     );
 }

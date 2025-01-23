@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import DetailButton from "../Ui/DetailButton";
+import MovieChart from "./MovieChart";
 
 const Wrapper = styled.div`
     display: flex;
@@ -16,7 +17,7 @@ const ContentWrapper = styled.div`
     align-items: center;
     background: skyblue;
     //background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(247, 247, 247));
-    width: 980px;
+    width: 1040px;
     height: 100%;
     margin: 0 auto;
     flex-direction: column;
@@ -28,7 +29,7 @@ const MovieChartBeScreenButtonWrapper = styled.div`
     justify-content: space-between;
     margin-bottom: 20px;
     height:37px;
-    width: 100%;
+    width: 980px;
     background: white;
 `;
 
@@ -38,7 +39,7 @@ const TabButtonWrapper = styled.div`
     justify-content: center;
 `;
 
-const MoiveButton = styled.div`
+const MovieButton = styled.div`
     font-weight: ${(props) => (props.active ? "700" : "400")};
     font-size: 26px;
     color: ${(props) => (props.active ? "#222222" : "#666666")};
@@ -47,15 +48,17 @@ const MoiveButton = styled.div`
     cursor: pointer;
 `
 
-const MoiveSwiperWrapper = styled.div`
-    //position: relative;
-    display: flex;
-    width: 100%;
-    height: 295px;
-    //z-index: 1;
-    /* transition-property: transform;
-    box-sizing: content-box; */
+const MovieSwiperWrapper = styled.div`
     background: pink;
+    position: relative;
+    width: 980px;
+    height: 295px;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+    transform: translate3d(0px, 0px, 0px);
+    transition-duration: 0ms;
 `
 
 function MovieContent() {
@@ -70,14 +73,14 @@ function MovieContent() {
             <ContentWrapper>
                 <MovieChartBeScreenButtonWrapper>
                     <TabButtonWrapper>
-                        <MoiveButton active={movieActive === 0} onClick={() => handleClick(0)}>무비차트</MoiveButton>
-                        <MoiveButton active={movieActive === 1} onClick={() => handleClick(1)}>상영예정작</MoiveButton>
+                        <MovieButton active={movieActive === 0} onClick={() => handleClick(0)}>무비차트</MovieButton>
+                        <MovieButton active={movieActive === 1} onClick={() => handleClick(1)}>상영예정작</MovieButton>
                     </TabButtonWrapper>
                     <DetailButton title="전체보기"/>
                 </MovieChartBeScreenButtonWrapper>
-                <MoiveSwiperWrapper>
-                    영화
-                </MoiveSwiperWrapper>
+                <MovieSwiperWrapper>
+                    <MovieChart />
+                </MovieSwiperWrapper>
             </ContentWrapper>
         </Wrapper>
     );

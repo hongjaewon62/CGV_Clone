@@ -9,6 +9,7 @@ const Poster = styled.img`
     width: 170px;
     height: 234px;
     border-radius: 10px;
+    z-index: 1;
 `;
 
 function MoviePoster(props) {

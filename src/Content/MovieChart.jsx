@@ -53,21 +53,71 @@ const PercentWrapper = styled.div`
     align-items: center;
 `;
 
-function MovieChart() {
+const PosterWrapper = styled.div`
+    overflow: hidden;
+    position: relative;
+    width: 170px;
+    height: 234px;
+    border-radius: 10px;
+    
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.85));
+        z-index: 2;  
+    }
+
+    &::after {
+        content: "${props => props.rank}";
+        position: absolute;
+        left: 9px;
+        bottom: -4px;
+        font-weight: 400;
+        font-size: 50px;
+        font-style: italic;
+        color: #fff;
+        line-height: 1em;
+        z-index: 3;
+        text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.45)
+    }
+`;
+
+const PosterButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85));
+`
+
+function MovieChart(props) {
+    const {data} = props
     return(
         <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={32}
         slidesPerView={5}
+        slidesPerGroup={5}
         navigation
-        // pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
       >
-            {MovieChartData.map((movie) => {
+            {data.map((movie) => {
                 return(
                     <SwiperSlide>
                         <Wrapper key={movie.rank}>
-                            <MoviePoster url={movie.img}/>
+                            <PosterWrapper rank={movie.rank}>
+                                <MoviePoster url={movie.img}/>
+                            </PosterWrapper>
                             <MovieName>{movie.title || "영화 제목"}</MovieName>
                             <PercentWrapper>
                                 <GoldenEggWrapper><GoldenEggImg src={movie.egg === "pre" ? "img/eggGoldeneggPreegg.png" : "img/eggGoldenegggood.png"} /> {movie.eggPercent}%</GoldenEggWrapper>

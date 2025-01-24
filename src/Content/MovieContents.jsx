@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import DetailButton from "../Ui/DetailButton";
 import MovieChart from "./MovieChart";
+import MovieChartData from "../data/MovieChartData";
+import ToBeScreenedData from "../data/ToBeScreenedData";
 
 const Wrapper = styled.div`
     display: flex;
@@ -15,8 +17,8 @@ const ContentWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: skyblue;
-    //background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(247, 247, 247));
+    //background: skyblue;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(247, 247, 247));
     width: 1040px;
     height: 100%;
     margin: 0 auto;
@@ -49,7 +51,7 @@ const MovieButton = styled.div`
 `
 
 const MovieSwiperWrapper = styled.div`
-    background: pink;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(247, 247, 247));
     position: relative;
     width: 980px;
     height: 295px;
@@ -79,7 +81,7 @@ function MovieContent() {
                     <DetailButton title="전체보기"/>
                 </MovieChartBeScreenButtonWrapper>
                 <MovieSwiperWrapper>
-                    <MovieChart />
+                    <MovieChart data={movieActive === 0 ? MovieChartData : ToBeScreenedData}/>
                 </MovieSwiperWrapper>
             </ContentWrapper>
         </Wrapper>

@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import MoviePoster from "./MoviePoster";
-import MovieChartData from "../data/MovieChartData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {Navigation, Pagination} from "swiper/modules";
 import "swiper/css";
 import "./SwiperNavigation.css";
+import ChartButton from "../Ui/ChartButton";
 
 const Wrapper = styled.div`
     display: flex;
@@ -61,19 +61,49 @@ const PosterWrapper = styled.div`
     border-radius: 10px;
     
     &::before {
-        content: "";
+        ${(props) => (props.mouse
+            ?`  
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4);
+                z-index: 2;  
+            `
+            :
+            `
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.85));
+                z-index: 2; 
+            `
+        )};
+        /* content: "";
         display: block;
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.85));
-        z-index: 2;  
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 2;   */
     }
 
     &::after {
-        content: "${props => props.rank}";
+        ${(props) => (props.mouse
+            ? ""
+            :  `
+                content: "${props.rank}";
+            `
+        )}
         position: absolute;
         left: 9px;
         bottom: -4px;
@@ -83,26 +113,13 @@ const PosterWrapper = styled.div`
         color: #fff;
         line-height: 1em;
         z-index: 3;
-        text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.45)
+        text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5)
     }
 `;
 
-const PosterButtonWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85));
-`
-
 function MovieChart(props) {
     const {data} = props
+
     return(
         <Swiper
         modules={[Navigation, Pagination]}
@@ -115,9 +132,9 @@ function MovieChart(props) {
                 return(
                     <SwiperSlide>
                         <Wrapper key={movie.rank}>
-                            <PosterWrapper rank={movie.rank}>
-                                <MoviePoster url={movie.img}/>
-                            </PosterWrapper>
+                            <PosterWithMouseEffect rank={movie.rank} img={movie.img} />
+                            {/* <ChartButton title="상세보기" color="#FFFFFF" fontColor="#666666" />
+                            <ChartButton title="예매하기" color="#FB4357" fontColor="#FFFFFF" /> */}
                             <MovieName>{movie.title || "영화 제목"}</MovieName>
                             <PercentWrapper>
                                 <GoldenEggWrapper><GoldenEggImg src={movie.egg === "pre" ? "img/eggGoldeneggPreegg.png" : "img/eggGoldenegggood.png"} /> {movie.eggPercent}%</GoldenEggWrapper>
@@ -130,5 +147,29 @@ function MovieChart(props) {
       </Swiper>
     );
 }
+
+const PosterWithMouseEffect = ({ rank, img }) => {
+    const [mouse, setMouse] = useState(false);
+
+    const handleMouseEnter = () => {
+        setMouse(true);
+    };
+
+    const handleMouseLeave = () => {
+        setMouse(false);
+    };
+
+    return (
+        <PosterWrapper
+            rank={rank}
+            mouse={mouse}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}>
+            <MoviePoster
+                url={img}
+            />
+        </PosterWrapper>
+    );
+};
 
 export default MovieChart;

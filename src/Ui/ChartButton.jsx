@@ -19,6 +19,11 @@ const ButtonStyled = styled.div`
     border-radius: 4px;
     color: ${(props) => (props.fontColor || "#000000")} ;
     z-index: 3;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
 `
 
 function ChartButton(props) {

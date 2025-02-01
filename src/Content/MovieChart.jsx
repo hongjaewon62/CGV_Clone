@@ -117,6 +117,19 @@ const PosterWrapper = styled.div`
     }
 `;
 
+const ChartButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 5px;
+`;
+
 function MovieChart(props) {
     const {data} = props
 
@@ -165,9 +178,12 @@ const PosterWithMouseEffect = ({ rank, img }) => {
             mouse={mouse}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>
-            <MoviePoster
-                url={img}
-            />
+            {mouse && <ChartButtonWrapper>
+                <ChartButton title="상세보기" color="#FFFFFF" fontColor="#666666" />
+                <ChartButton title="예매하기" color="#FB4357" fontColor="#FFFFFF" />
+            </ChartButtonWrapper>}
+            <MoviePoster url={img}>
+            </MoviePoster>
         </PosterWrapper>
     );
 };

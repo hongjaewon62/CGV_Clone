@@ -1,16 +1,15 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import MoviePoster from "./MoviePoster";
+import ChartButton from "../Ui/ChartButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {Navigation, Pagination} from "swiper/modules";
 import "swiper/css";
 import "./SwiperNavigation.css";
-import ChartButton from "../Ui/ChartButton";
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    //padding-right: 32px;
 `
 
 const MovieName = styled.div`
@@ -86,15 +85,6 @@ const PosterWrapper = styled.div`
                 z-index: 2; 
             `
         )};
-        /* content: "";
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 2;   */
     }
 
     &::after {
@@ -146,8 +136,6 @@ function MovieChart(props) {
                     <SwiperSlide>
                         <Wrapper key={movie.rank}>
                             <PosterWithMouseEffect rank={movie.rank} img={movie.img} />
-                            {/* <ChartButton title="상세보기" color="#FFFFFF" fontColor="#666666" />
-                            <ChartButton title="예매하기" color="#FB4357" fontColor="#FFFFFF" /> */}
                             <MovieName>{movie.title || "영화 제목"}</MovieName>
                             <PercentWrapper>
                                 <GoldenEggWrapper><GoldenEggImg src={movie.egg === "pre" ? "img/eggGoldeneggPreegg.png" : "img/eggGoldenegggood.png"} /> {movie.eggPercent}%</GoldenEggWrapper>

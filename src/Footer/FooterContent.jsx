@@ -6,6 +6,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: #f8f8f8;
 `
 
 const PloicyWrapper = styled.div`

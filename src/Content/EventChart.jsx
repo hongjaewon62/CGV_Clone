@@ -1,15 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+import EventChartData from "../data/EventChartData";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Navigation, Pagination} from "swiper/modules";
+import {Navigation, Autoplay} from "swiper/modules";
 import "swiper/css";
 import "./SwiperNavigation.css";
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
 `;
 
 const EventImg = styled.img`
@@ -17,6 +16,7 @@ const EventImg = styled.img`
     height: 207px;
     border-radius: 10px;
     z-index: 1;
+    cursor: pointer;
 `
 const EventImgWrapper = styled.div`
     overflow: hidden;
@@ -26,35 +26,44 @@ const EventImgWrapper = styled.div`
     border-radius: 10px;
 `
 
+const EventTitle = styled.div`
+    display: block;
+    overflow: hidden;
+    margin-top: 16px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #222;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+`
+
+const EventData = styled.span`
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+    color: #666;
+`
+
 function EventChart() {
-    const eventImgs = [
-        "img/Event1.jpg",
-        "img/Event2.jpg",
-        "img/Event3.jpg",
-        "img/Event4.jpg",
-        "img/Event5.jpg",
-        "img/Event6.jpg"
-    ];
+    // const [play, setPlay] = useState(false);
     return(
-        // <Wrapper>
-        // <EventImgWrapper>
-        //     <EventImg src="img/Event1.jpg" />
-        //     <EventImg src="img/Event2.jpg" />
-        //     <EventImg src="img/Event3.jpg" />
-        // </EventImgWrapper>
-        // </Wrapper>
         <Swiper
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Autoplay]}
         spaceBetween={20}
         slidesPerView={3}
         slidesPerGroup={3}
         navigation
+        autoplay={{delay: 2500, disableOnInteraction: false}}
       >
         {
-        eventImgs.map((src, index) => (
+        EventChartData.map((event, index) => (
             <SwiperSlide key={index}>         
                 <Wrapper>
-                    <EventImg src={src} />
+                    <EventImgWrapper>
+                        <EventImg src={event.img} />
+                    </EventImgWrapper>
+                    <EventTitle>{event.title}</EventTitle>
+                    <EventData>{event.data}</EventData>
                 </Wrapper>
             </SwiperSlide>
         ))}

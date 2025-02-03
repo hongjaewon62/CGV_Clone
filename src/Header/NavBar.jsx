@@ -46,6 +46,7 @@ const SearchIcon = styled.img`
     display: flex;
     align-items: center;
     margin: 2px;
+    cursor: pointer;
 `;
 
 function NavBar() {

@@ -12,7 +12,7 @@ const SpecialHallData = [
     {
         title: "4DX",
         desc: "모션시트,오감체험",
-        img: "img/SuiteCinema.png",
+        img: "img/4DX.png",
     },
     {
         title: "CINE de CHEF",

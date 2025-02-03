@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import DetailButton from "../Ui/DetailButton";
 import SpecialHallData from "../data/SpecialHallData";
@@ -19,7 +19,6 @@ const SpecialHallWrapper = styled.div`
     width: 980px;
     height: 261px;
     padding: 19px 0 0;
-    background: pink;
 `
 
 const SpecialHallTitleWrapper = styled.div`
@@ -29,7 +28,6 @@ const SpecialHallTitleWrapper = styled.div`
     width: 980px;
     height: 37px;
     margin: 0 0 20px;
-    background: steelblue;
 `
 
 const TitleWrapper = styled.div`
@@ -40,8 +38,6 @@ const TitleWrapper = styled.div`
     font-size: 26px;
     color: #222;
     line-height: 1.423em;
-    background-image: none;
-    cursor: pointer;
 `
 
 const SpecialHallImg = styled.img`
@@ -60,8 +56,14 @@ const SpecialHallList = styled.div`
     align-items: center;
     width:440px;
     height: 65px;
-    background: yellow;
-    border-bottom: 1px solid #666666;
+    border-top: 1px solid #666666;
+    border: ${(props) => (props.isHover ? "1px solid black" : "")};
+    border-radius: ${(props) => (props.isHover ? "10px" : "none")};
+    
+    &:hover {
+        border: 1px solid black;
+        border-radius: 10px;
+    }
 `;
 
 const SpecialHallDesc = styled.div`
@@ -71,6 +73,7 @@ const SpecialHallDesc = styled.div`
     width: 438px;
     height: 64px;
     padding: 19px 25px 19px 19px;
+    cursor: pointer;
 `;
 
 const SpecialHallListTitle = styled.strong`
@@ -92,7 +95,7 @@ const SpecialHallListTag = styled.span`
 `;
 
 function SpecialHallContent () {
-
+    const [listIndex, setListIndex] = useState(null);
     const hall = SpecialHallData;
     return (
         <Wrapper>
@@ -101,13 +104,17 @@ function SpecialHallContent () {
                 <DetailButton title="전체보기" />
             </SpecialHallTitleWrapper>
             <SpecialHallWrapper>
-                <SpecialHallImg src={hall[0].img} />
+                <SpecialHallImg src={listIndex !== null ? hall[listIndex].img : hall[0].img} />
                 <SpecialHallListWrapper>
                     {hall.map((specialHall, index) => (
-                        <SpecialHallList key={index}>
+                        <SpecialHallList 
+                        key={index}
+                        isHover={listIndex === index}
+                        onMouseEnter={() => setListIndex(index)}
+                        onMouseLeave={() => setListIndex(index)}
+                        >
                             <SpecialHallDesc>
                                 <SpecialHallListTitle>{specialHall.title}</SpecialHallListTitle>
-                                
                                 <ListTagWrapper >
                                     {specialHall.desc.split(",").map((word, index) => (
                                             <SpecialHallListTag key={index}>#{word}</SpecialHallListTag>

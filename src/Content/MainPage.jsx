@@ -3,6 +3,7 @@ import HeaderContent from "../Header/HeaderContent";
 import MovieContent from "./MovieContents";
 import EventContent from "./EventContent";
 import SpecialHallContent from "./SpecialHallContent";
+import GiftconContent from "./GiftconContent";
 
 function MainPage() {
     return (
@@ -11,6 +12,7 @@ function MainPage() {
             <MovieContent />
             <EventContent />
             <SpecialHallContent />
+            <GiftconContent />
         </>
     );
 }

@@ -4,6 +4,7 @@ import MovieContent from "./MovieContents";
 import EventContent from "./EventContent";
 import SpecialHallContent from "./SpecialHallContent";
 import GiftconContent from "./GiftconContent";
+import NoticeContent from './NoticeContent';
 
 function MainPage() {
     return (
@@ -13,6 +14,7 @@ function MainPage() {
             <EventContent />
             <SpecialHallContent />
             <GiftconContent />
+            <NoticeContent />
         </>
     );
 }

@@ -17,7 +17,6 @@ const ContentWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    //background: skyblue;
     background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(247, 247, 247));
     width: 1040px;
     height: 100%;

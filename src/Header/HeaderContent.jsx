@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import HeaderButton from "../Ui/HeaderButton";
 import NavBar from "./NavBar";
@@ -46,9 +46,27 @@ const NavBarStyled = styled.div`
     align-items: start;
     justify-content: center;
     border-bottom: 1.5px solid #FB4357;
+    background : ${(props) => (props.scroll ? "linear-gradient(to right, rgb(215, 67, 87), rgb(241, 79, 58) 59%, rgb(239, 100, 47))": "none")};
 `;
 
 function HeaderContent() {
+    const [scroll, setScroll] = useState(false);
+
+    useEffect(() => {
+            const handleScroll = () => {
+                if (window.scrollY > 120) {
+                    setScroll(true);
+                } else {
+                    setScroll(false);
+                }
+            };
+    
+            window.addEventListener("scroll", handleScroll);
+    
+            return () => {
+                window.removeEventListener("scroll", handleScroll);
+            };
+        }, []);
     return (
         <>
             <HeaderContentStyled>
@@ -66,7 +84,7 @@ function HeaderContent() {
                 </Content>
             </HeaderContentStyled>
             <NavBarStyled>
-                <NavBar />
+                <NavBar scroll={scroll}/>
             </NavBarStyled>
             <Movie />
         </>

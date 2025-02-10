@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import EventChartData from "../data/EventChartData";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -45,7 +45,6 @@ const EventData = styled.span`
 `
 
 function EventChart() {
-    // const [play, setPlay] = useState(false);
     return(
         <Swiper
         modules={[Navigation, Autoplay]}

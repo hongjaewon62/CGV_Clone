@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import styled from "styled-components";
 import NavBarButton from "../Ui/NavBarButton";
 import DropDownMenu from './DropDownMenu';
@@ -6,7 +6,11 @@ import DropDownMenu from './DropDownMenu';
 const Wrapper = styled.div`
     display: flex;
     align-items: center;
-    position: relative;
+    position: ${(props) => (props.show) ? "fixed": "relative"};
+    transform: ${(props) => (props.show) ? "translate(-50%, 0%);": "none"};
+    background : ${(props) => (props.show ? "linear-gradient(to right, rgb(215, 67, 87), rgb(241, 79, 58) 59%, rgb(239, 100, 47))": "none")};
+    top: ${(props) => (props.show ? "0" : "none")};
+    z-index: 5;
 `;
 
 const NavWrapper = styled.div`
@@ -16,15 +20,22 @@ const NavWrapper = styled.div`
 
 const NavMenu = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const NavBarStyled = styled.div`
+    display: flex;
     align-items: start;
-    justify-content: start;
+    justify-content: center;
+    border-bottom: 1.5px solid #FB4357;
 `;
 
 const Search = styled.div`
     width: 233px;
     height: 24px;
-    border-left: 1.5px solid #CACACA;
-    border-right: 1.5px solid #CACACA;
+    border-left: ${(props) => (props.show) ? "1.5px solid #000000" : "1.5px solid #CACACA"};
+    border-right: ${(props) => (props.show) ? "1.5px solid #000000" : "1.5px solid #CACACA"};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,6 +45,7 @@ const Search = styled.div`
 const SerachInput = styled.input`
     width: 187px;
     height: 24px;
+    background: ${(props) => (props.show) ? "transparent": "none"};
     border: none;
     display: flex;
     align-items: center;
@@ -49,7 +61,13 @@ const SearchIcon = styled.img`
     cursor: pointer;
 `;
 
-function NavBar() {
+const ScrollLogoImg = styled.img`
+    width: 70px;
+    height: 32px;
+    padding: 20px;
+`;
+
+function NavBar({scroll}) {
     const [dropdownVisible, setDropdownVisible] = useState(false);
 
     const handleMouseEnter = () => {
@@ -63,14 +81,15 @@ function NavBar() {
     return(
         <> 
             <NavWrapper>
-                <Wrapper>
+                <Wrapper show={scroll}>
                     <NavMenu onMouseEnter={handleMouseEnter}>
-                        <NavBarButton title="영화" />
-                        <NavBarButton title="극장" />
-                        <NavBarButton title="예메" color="#FB4357" />
-                        <NavBarButton title="스토어" />
-                        <NavBarButton title="이벤트" />
-                        <NavBarButton title="헤택" />
+                        {scroll && <ScrollLogoImg src="img/logoWhite.png" />}
+                        <NavBarButton title="영화" color={scroll ? "#FFFFFF" : "#222222"}/>
+                        <NavBarButton title="극장" color={scroll ? "#FFFFFF" : "#222222"}/>
+                        <NavBarButton title="예메" color={scroll ? "#FFFFFF" : "#FB4357"} />
+                        <NavBarButton title="스토어" color={scroll ? "#FFFFFF" : "#222222"}/>
+                        <NavBarButton title="이벤트" color={scroll ? "#FFFFFF" : "#222222"}/>
+                        <NavBarButton title="헤택" color={scroll ? "#FFFFFF" : "#222222"}/>
                     </NavMenu>
                     <Search>
                         <SerachInput type="text" />

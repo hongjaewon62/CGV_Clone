@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import NavBarButton from "../Ui/NavBarButton";
 import DropDownMenu from './DropDownMenu';
@@ -6,6 +6,8 @@ import DropDownMenu from './DropDownMenu';
 const Wrapper = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
     position: ${(props) => (props.show) ? "fixed": "relative"};
     transform: ${(props) => (props.show) ? "translate(-50%, 0%);": "none"};
     background : ${(props) => (props.show ? "linear-gradient(to right, rgb(215, 67, 87), rgb(241, 79, 58) 59%, rgb(239, 100, 47))": "none")};
@@ -22,13 +24,6 @@ const NavMenu = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-`;
-
-const NavBarStyled = styled.div`
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    border-bottom: 1.5px solid #FB4357;
 `;
 
 const Search = styled.div`
@@ -67,8 +62,9 @@ const ScrollLogoImg = styled.img`
     padding: 20px;
 `;
 
-function NavBar({scroll}) {
+function NavBar() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [scroll, setScroll] = useState(false);
 
     const handleMouseEnter = () => {
         setDropdownVisible(true);
@@ -77,6 +73,25 @@ function NavBar({scroll}) {
     const handleMouseLeave = () => {
         setDropdownVisible(false);
     };
+    // console.log(scrollShow);
+
+    
+
+    useEffect(() => {
+            const handleScroll = () => {
+                if (window.scrollY > 120) {
+                    setScroll(true);
+                } else {
+                    setScroll(false);
+                }
+            };
+    
+            window.addEventListener("scroll", handleScroll);
+    
+            return () => {
+                window.removeEventListener("scroll", handleScroll);
+            };
+        }, []);
 
     return(
         <> 
@@ -96,7 +111,7 @@ function NavBar({scroll}) {
                         <SearchIcon src="img/search.png" />
                     </Search>
                 </Wrapper>
-                <DropDownMenu onMouseLeave={handleMouseLeave} isVisible={dropdownVisible}/>
+                <DropDownMenu onMouseLeave={handleMouseLeave} isVisible={dropdownVisible} scrollShow={scroll} top="70px"/>
             </NavWrapper>
         </>
     );

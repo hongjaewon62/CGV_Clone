@@ -1,16 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import HeaderContent from './Header/HeaderContent';
-// import NavBar from "./Header/NavBar";
 import FooterContent from './Footer/FooterContent';
 import MainPage from "./Content/MainPage";
 
 function App() {
   return(
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route index element={<MainPage />} />
-        {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
       <FooterContent />
     </BrowserRouter>

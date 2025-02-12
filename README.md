@@ -20,23 +20,31 @@
 
 * CGV 전체 페이지입니다.
 
+
 **네비게이션 바**
+
 <img width="781" alt="Image" src="https://github.com/user-attachments/assets/14b1a4f3-09fe-4bd4-97b1-a6c51e9c2f6b" />
 
 
 * 네비게이션 바입니다.
 
+
 **영화 차트**
+
 <img width="785" alt="Image" src="https://github.com/user-attachments/assets/5160bee6-9e57-4b2c-ae1d-4ed8f0cec7a7" />
 
 * 무비차트와 상영예정작의 순위와 정보를 보여주며, Swiper 라이브러리를 사용해 구현하였습니다.
 
+
 **이벤트**
+
 <img width="778" alt="Image" src="https://github.com/user-attachments/assets/751c4bbd-be86-44fc-8411-2c9e5e59e125" />
 
 * Swiper 라이브러리로 구현했으며, 이벤트를 보여주고 자동으로 페이지가 넘어갑니다.
 
+
 **특별관**
+
 <img width="764" alt="Image" src="https://github.com/user-attachments/assets/16cfcaf0-ca98-4cf2-9113-572a8cc9c26c" />
 
 * 마우스를 올리면 해당 관으로 이미지가 바뀝니다.

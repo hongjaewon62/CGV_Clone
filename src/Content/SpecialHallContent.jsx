@@ -19,7 +19,7 @@ const SpecialHallWrapper = styled.div`
     width: 980px;
     height: 261px;
     padding: 19px 0 0;
-`
+`;
 
 const SpecialHallTitleWrapper = styled.div`
     display: flex;
@@ -28,7 +28,7 @@ const SpecialHallTitleWrapper = styled.div`
     width: 980px;
     height: 37px;
     margin: 0 0 20px;
-`
+`;
 
 const TitleWrapper = styled.div`
     float: left;
@@ -38,7 +38,7 @@ const TitleWrapper = styled.div`
     font-size: 26px;
     color: #222;
     line-height: 1.423em;
-`
+`;
 
 const SpecialHallImg = styled.img`
     width: 500px;

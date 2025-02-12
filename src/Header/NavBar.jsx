@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
 const NavWrapper = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 `
 
 const NavMenu = styled.div`
@@ -73,7 +73,6 @@ function NavBar() {
     const handleMouseLeave = () => {
         setDropdownVisible(false);
     };
-    // console.log(scrollShow);
 
     
 

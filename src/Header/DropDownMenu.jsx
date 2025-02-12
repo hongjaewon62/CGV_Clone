@@ -30,7 +30,7 @@ const DropDownMenuContent = styled.div`
     display: flex;
     justify-content: start;
     align-items: start;
-    width: 160px;
+    width: ${(props) => (props.contentIndex === 0 ? "137px" : props.contentIndex === 5 ? "195px" : "160px")};
     height: 320px;
     border-left: 0.5px solid #EEEEEE;
     border-right: 0.5px solid #EEEEEE;
@@ -87,12 +87,11 @@ const menuData = [
 ];
 
 function DropDownMenu({isVisible, onMouseLeave, scrollShow, top}) {
-    console.log(scrollShow);
     return (
         <Wrapper onMouseLeave={onMouseLeave} top={top}>
             <DropDownWrapper isVisible={isVisible} scrollShow={scrollShow} >
                 {menuData.map((menu, index) => (
-                    <DropDownMenuContent key={index}>
+                    <DropDownMenuContent key={index} contentIndex={index}>
                         <DropDownTitle>{menu.title}</DropDownTitle>
                         {menu.items.map((item, subIndex) => (
                             <DropDownContent key={subIndex}>{item}</DropDownContent>

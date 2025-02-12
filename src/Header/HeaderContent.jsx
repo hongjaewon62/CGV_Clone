@@ -18,7 +18,6 @@ const Content = styled.div`
     background: white;
     padding: 30px 6px 25px 5px;
     display: flex;
-    //align-items: end;
     justify-content: space-between;
     width: 991px;
 `;

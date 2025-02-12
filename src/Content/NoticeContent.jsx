@@ -156,7 +156,7 @@ const QrImgWrapper = styled.div`
     margin: 29px auto 0;
     position: relative;
     overflow: hidden;
-`
+`;
 
 const QrImg = styled.img`
     left: 0;

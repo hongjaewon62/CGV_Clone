@@ -5,7 +5,6 @@ const ButtonStyled = styled.div`
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    //justify-content: end;
     align-items: center;
     color: #666666;
     font-size: 13px;

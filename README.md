@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# CGV 메인화면 클론코딩
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 프로젝트 정보
+## 개발 기간
+* **2025.01.15 ~ 2025.02.12**
 
-## Available Scripts
+## 사용 기술
 
-In the project directory, you can run:
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white"/>
 
-### `npm start`
+# 프로그램 소개
+* CGV 메인 홈페이지를 클론 코딩하였습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 서비스 소개
+[깃허브 페이지 보기](https://hongjaewon62.github.io/CGV_Clone/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**전체페이지**
+<img width="260" alt="Image" src="https://github.com/user-attachments/assets/c89d59e9-2f24-4935-8857-d2828780413e" />
 
-### `npm test`
+* CGV 전체 페이지입니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**네비게이션 바**
+<img width="781" alt="Image" src="https://github.com/user-attachments/assets/14b1a4f3-09fe-4bd4-97b1-a6c51e9c2f6b" />
 
-### `npm run build`
+* 네비게이션 바입니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**영화 차트**
+<img width="785" alt="Image" src="https://github.com/user-attachments/assets/5160bee6-9e57-4b2c-ae1d-4ed8f0cec7a7" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* 무비차트와 상영예정작의 순위와 정보를 보여주며, Swiper 라이브러리를 사용해 구현하였습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**이벤트**
+<img width="778" alt="Image" src="https://github.com/user-attachments/assets/751c4bbd-be86-44fc-8411-2c9e5e59e125" />
 
-### `npm run eject`
+* Swiper 라이브러리로 구현했으며, 이벤트를 보여주고 자동으로 페이지가 넘어갑니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**특별관
+<img width="764" alt="Image" src="https://github.com/user-attachments/assets/16cfcaf0-ca98-4cf2-9113-572a8cc9c26c" />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* 마우스를 올리면 해당 관으로 이미지가 바뀝니다.
